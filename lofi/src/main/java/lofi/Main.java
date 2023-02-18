@@ -13,7 +13,7 @@ import java.awt.Desktop;
 
 
 /**
- * This is my dumb version of hello world, deal with it losers
+ * Stupid little app that will display some ascii art and open your default browser with a lofi-hiphop stream
  */
 public class Main{
 
@@ -41,6 +41,12 @@ public static void main(String[] args) throws URISyntaxException, IOException {
     playThatShit();
 }
 
+/**
+ * 
+ * @param filename
+ * @return {@link InputStream} of the ascii art
+ * @throws URISyntaxException
+ */
  private static InputStream getArt(final String filename) throws URISyntaxException {
     InputStream is = Main.class.getResourceAsStream(filename);
     if(is == null){
@@ -50,7 +56,9 @@ public static void main(String[] args) throws URISyntaxException, IOException {
     }
 }
 
-
+/**
+ * Opens a browser with the lofi-hiphop stream
+ */
 private static void playThatShit(){
     try{
         if(Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
