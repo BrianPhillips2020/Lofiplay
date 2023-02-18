@@ -1,5 +1,6 @@
 plugins {
     `application`
+    id("com.diffplug.spotless") version "6.15.0"
 }
 
 repositories {
@@ -17,6 +18,18 @@ tasks.jar{
         attributes("Main-Class" to "lofi.Main")
     }
 }
+
+spotless {
+    java {
+          // Cleanthat will refactor your code, but it may break your style: apply it before your formatter
+      cleanthat()          // has its own section below
+  
+      // Choose one of these formatters.
+      googleJavaFormat()   // has its own section below
+  
+
+    }
+  }
 
 configure<JavaPluginConvention>{
     sourceCompatibility= org.gradle.api.JavaVersion.VERSION_17
